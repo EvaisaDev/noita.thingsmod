@@ -3,6 +3,7 @@
 ---@type string[]
 local M = {
 	"example",
+	"module_control",
 	"simple_perks",
 }
 

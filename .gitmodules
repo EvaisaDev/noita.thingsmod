@@ -1,3 +1,6 @@
 [submodule "lib/nxml"]
 	path = lib/nxml
 	url = https://github.com/NathanSnail/luanxml
+[submodule "lib/vivid"]
+	path = lib/vivid
+	url = https://github.com/WetDesertRock/vivid.git
