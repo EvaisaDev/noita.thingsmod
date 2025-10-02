@@ -43,16 +43,18 @@ local M = {
 			shift = shift + width
 		end
 
-		GuiOptionsAdd(gui, gui_options.AlwaysClickable)
-		GuiImage(
+		local box_x, box_y, box_w, box_h = x, y - wiggles, shift, tallest_char + 2 * wiggles
+		local cutout_id = id()
+		GuiImageNinePiece(
 			gui,
 			id(),
-			x,
-			y - wiggles,
+			box_x,
+			box_x,
+			box_w,
+			box_h,
+			1,
 			"data/debug/empty.png",
-			0,
-			shift,
-			tallest_char + 2 * wiggles
+			"data/debug/empty.png"
 		)
 		local clicked, _, hovered = GuiGetPreviousWidgetInfo(gui)
 		hovered_last = hovered
