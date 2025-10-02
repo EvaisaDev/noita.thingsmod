@@ -22,6 +22,7 @@ local M = {
 	OnPausePreUpdate = function()
 		gui = gui or GuiCreate()
 		GuiStartFrame(gui)
+		_id = 2
 
 		local message = "Every Things Settings"
 		local x = 10
@@ -44,12 +45,13 @@ local M = {
 		end
 
 		local box_x, box_y, box_w, box_h = x, y - wiggles, shift, tallest_char + 2 * wiggles
-		local cutout_id = id()
+		GuiOptionsAdd(gui, gui_options.AlwaysClickable)
+		GuiOptionsAdd(gui, gui_options.ForceFocusable)
 		GuiImageNinePiece(
 			gui,
 			id(),
 			box_x,
-			box_x,
+			box_y,
 			box_w,
 			box_h,
 			1,
