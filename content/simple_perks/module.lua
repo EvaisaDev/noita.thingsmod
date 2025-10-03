@@ -1,5 +1,5 @@
 local module_utils = require "lib.module_utils.module_utils"
----@type Module
+---@class Module
 local M = {
 	name = "Perks",
 	description = "Adds perks.",
@@ -8,13 +8,11 @@ local M = {
 
 function M.OnModInit()
 	-- Custom Perk support injection
-	ModLuaFileAppend(
-		"data/scripts/perks/perk_list.lua",
-		module_utils.modpath "scripts/perks/custom_perks.lua"
-	)
+	ModLuaFileAppend("data/scripts/perks/perk_list.lua", module_utils.modpath "scripts/perks/custom_perks.lua")
 
 	--Appending extra modifiers
 	ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", module_utils.modpath "scripts/gun/gun_extra_populator.lua")
+
 	-- Inject bountiful hunter power-ups
 	ModLuaFileAppend("data/scripts/items/drop_money.lua", module_utils.modpath "scripts/drop_booster.lua")
 	ModTextFileSetContent("data/entities/base_humanoid.xml", ModTextFileGetContent("data/entities/base_humanoid.xml"):gsub("</Entity>$", [[<LuaComponent execute_every_n_frame="-1" execute_on_added="1" script_source_file="mods/noita.thingsmod/content/simple_perks/scripts/hp_gutter.lua" /></Entity>]]))

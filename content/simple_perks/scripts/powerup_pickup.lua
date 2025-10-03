@@ -10,7 +10,7 @@ end
 
 
 function item_pickup( entity_item, entity_who_picked, item_name )
-	local pos_x, pos_y = EntityGetTransform( entity_item ))
+	local pos_x, pos_y = EntityGetTransform( entity_item )
 	local effect = "NONE"
 	local buff = EntityLoad("mods/noita.thingsmod/content/simple_perks/entities/misc/buff_random.xml")
 	local GEC = EntityGetFirstComponentIncludingDisabled(buff, "GameEffectComponent") --[[@cast GEC integer]]
