@@ -40,6 +40,9 @@ return {
 		end
 
 		-- Inject bountiful hunter power-ups
+		print'[THINGSMOD/PERKS] Injecting bountiful hunter content!'
+		local base_path = "data/entities/base_humanoid.xml"
 		ModLuaFileAppend("data/scripts/items/drop_money.lua", "mods/noita.thingsmod/content/simple_perks/scripts/drop_booster.lua")
+		ModTextFileSetContent(base_path, ModTextFileGetContent(base_path):gsub("</Entity>$", [[<LuaComponent execute_every_n_frame="-1" execute_on_added="1" script_source_file="mods/noita.thingsmod/content/simple_perks/scripts/hp_gutter.lua" /></Entity>]]))
 	end,
 }

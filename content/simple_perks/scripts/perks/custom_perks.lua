@@ -65,7 +65,7 @@ local custom_perk_perkappends = {
 			EntityAddTag( e, "perk_entity" )
 			EntityAddChild( entity_who_picked, e )
 		end,
-		-- OG: increases spawns, multiplies maxhp by 0.95^x, drops temp boosters
+		-- OG: increases spawns, multiplies maxhp by 0.95^(x+5.55), drops temp boosters
 		-- idea: on-kill you gain diminishing damage boost against the same enemy type? nah clunky
 		-- eh fuck it, just boosters
 		-- lets go we can go back to the original concept
