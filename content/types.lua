@@ -3,7 +3,7 @@
 ---@class (exact) Module
 ---@field name string
 ---@field description string
----@field authors string | string[]
+---@field authors string[]
 ---@field OnModPreInit (fun(): boolean?)?
 ---@field OnModInit (fun(): boolean?)?
 ---@field OnModPostInit (fun(): boolean?)?

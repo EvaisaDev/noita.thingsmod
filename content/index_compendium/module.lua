@@ -1,8 +1,13 @@
-return {
+---@type Module
+local M = {
 	name = "Index Compendium",
 	description = "A bunch of fancy HermeS Index stuff.",
-	authors = "Bruham",
+	authors = { "Bruham" },
 
-	OnThingsCalled = function( modules ) return true end,
+	OnThingsCalled = function(modules)
+		return true
+	end,
 	OnWorldPreUpdate = function() end,
 }
+
+return M

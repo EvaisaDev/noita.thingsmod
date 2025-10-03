@@ -1,10 +1,9 @@
-dofile_once("data/scripts/lib/utilities.lua")
-
+local gui_options = require "lib.gui.gui_options"
 ---@type Module
 local M = {
     name = "The Good Book of Cats",
     description = "Adds the Good Book of Cats",
-    authors = "dextercd",
+    authors = { "dextercd" },
 }
 
 local gui
@@ -34,6 +33,10 @@ local cats = {
         img = "mods/noita.thingsmod/cats/roger.jpg",
         name = "Roger",
     },
+    {
+        img = "mods/noita.thingsmod/cats/ella.png",
+        name = "Ella",
+    },
 }
 
 function M.OnModInit()
@@ -59,9 +62,9 @@ end
 
 function M.OnWorldPreUpdate()
     GuiStartFrame(gui)
-    GuiOptionsAdd(gui, GUI_OPTION.NoPositionTween)
+    GuiOptionsAdd(gui, gui_options.NoPositionTween)
     if GameGetIsGamepadConnected() then
-        GuiOptionsAdd(gui, GUI_OPTION.NonInteractive)
+        GuiOptionsAdd(gui, gui_options.NonInteractive)
     end
 
     if not GameHasFlagRun("NOITA_THINGSMOD_CAT_BOOK_HELD") then

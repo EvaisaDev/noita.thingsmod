@@ -2,7 +2,7 @@
 local M = {
 	name = "Altar of Renewing",
 	description = "Altar that resets the world with a new seed. Surely this will have no repercussions.",
-	authors = "Evaisa",
+	authors = { "Evaisa" },
 	OnModPreInit = function () 
 
 	end,

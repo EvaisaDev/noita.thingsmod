@@ -4,7 +4,7 @@ local module_utils = require "lib.module_utils.module_utils"
 local M = {
 	name = "Spells Module",
 	description = "Adds new spells to the game.",
-	authors = "Conga Lyne",
+	authors = { "Conga Lyne", "Nathan" },
 }
 
 function M.OnModInit()

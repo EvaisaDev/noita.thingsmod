@@ -2,7 +2,7 @@
 local M = {
 	name = "Shitcode Example",
 	description = "Adds shit code",
-	authors = "Username here",
+	authors = { "Username here", "Another username here" },
 	OnModPreInit = function() end,
 	OnModInit = function() end,
 	OnModPostInit = function() end,

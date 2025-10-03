@@ -2,7 +2,7 @@
 local M = {
 	name = "Debug Error",
 	description = "Throws an error during init, for testing if the error handling systems are working",
-	authors = "Nathan",
+	authors = { "Nathan" },
 }
 
 function M.OnThingsCalled(_)
