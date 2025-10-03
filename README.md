@@ -34,12 +34,14 @@ To create a feature create a feature branch to work on
 git switch -c my_awesome_feature
 ```
 
-Make some changes and commit them
+Make a new module for your content and commit it
 
 ```sh
-touch some_file.txt
-git add some_file.txt
-git commit -m "Add some file"
+mkdir content/some_module
+echo "return {}" > content/some_module/module.lua
+sed -i 's/}/\t"some_module",\n}/' content.lua
+git add .
+git commit -m "Add some module"
 ```
 
 Create a fork (on GitHub) and push to it

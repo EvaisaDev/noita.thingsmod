@@ -1,4 +1,5 @@
 dofile_once("mods/noita.thingsmod/require.lua")
+local module_utils = require("lib.module_utils.module_utils")
 
 local modules = require "content"
 
@@ -25,18 +26,26 @@ translations = translations .. extra_translations
 translations = translations:gsub("\r", ""):gsub("\n\n+", "\n")
 ModTextFileSetContent("data/translations/common.csv", translations)
 
+local errored = false
+local disabled_modules = {}
 local function do_callback(callback_name, ...)
 	for _, module in ipairs(modules) do
-		NOITATHINGS_MODULE = module
+		module_utils.current_module = module
 		local mod = dofile_once("mods/noita.thingsmod/content/" .. module .. "/module.lua")
-		if mod and mod[callback_name] then
-			local success, error_msg = pcall(mod[callback_name], ...)
-			if not success then print(mod.name .. " Error: " .. error_msg) end
+		if mod and mod[callback_name] and not disabled_modules[module] then
+			local success, error_msg = pcall(mod[callback_name], ...) --if runs normally and returns true, all the future module callbacks will be skipped
+			if not success then
+				print(mod.name .. " Error: " .. error_msg)
+				errored = true
+			elseif error_msg then
+				disabled_modules[module] = true
+			end
 		end
 	end
 end
 
 local callback_names = {
+	"OnThingsCalled",
 	"OnBiomeConfigLoaded",
 	"OnCountSecrets",
 	"OnMagicNumbersAndWorldSeedInitialized",
@@ -59,6 +68,9 @@ for _, callback_name in ipairs(callback_names) do
 	end
 end
 
+---@diagnostic disable-next-line: undefined-global
+OnThingsCalled(modules)
+
 function OnPlayerSpawned(...)
 	do_callback("OnPlayerSpawned", ...)
 	local flag = "NOITA_THINGSMOD_PLAYER_SPAWN_DONE"
@@ -66,3 +78,5 @@ function OnPlayerSpawned(...)
 	GameAddFlagRun(flag)
 	do_callback("OnPlayerFirstSpawned", ...)
 end
+
+if errored then error("Some modules failed to load, see log") end

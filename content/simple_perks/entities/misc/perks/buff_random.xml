@@ -1,0 +1,19 @@
+<Entity name="thingsmod_buff_random">
+	<InheritTransformComponent/>
+		
+
+	<GameEffectComponent
+		effect="NONE"
+		frames="1800"
+		exclusivity_group="543890000"
+	/>
+
+	<UIIconComponent
+		icon_sprite_file="mods/noita.thingsmod/content/simple_perks/ui_gfx/status_indicators/buff_.png"
+		name="A buff."
+		description="Have a cookie for looking here! (PH)"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+	/>
+</Entity>
