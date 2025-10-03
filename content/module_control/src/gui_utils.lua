@@ -12,11 +12,11 @@ local M = {}
 function M.block_region(gui, id, x, y, w, h)
 	local shared_id = id()
 
-	GuiAnimateBegin(gui)
-	GuiAnimateAlphaFadeIn(gui, shared_id, 0, 0, true)
+	--GuiAnimateBegin(gui)
+	--GuiAnimateAlphaFadeIn(gui, shared_id, 0, 0, true)
 	GuiOptionsAddForNextWidget(gui, gui_options.AlwaysClickable)
 	GuiBeginScrollContainer(gui, shared_id, x, y, w, h, false, 0, 0)
-	GuiAnimateEnd(gui)
+	-- GuiAnimateEnd(gui)
 	GuiEndScrollContainer(gui)
 	GuiIdPop(gui)
 end
