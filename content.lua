@@ -4,6 +4,7 @@
 local M = {
 	"example",
 	"simple_perks",
+	"providencemodule",
 	"good_book_of_cats",
 	"index_compendium",
 	"spells_module",

@@ -77,6 +77,8 @@ function OnPlayerSpawned(...)
 	if GameHasFlagRun(flag) then return end
 	GameAddFlagRun(flag)
 	do_callback("OnPlayerFirstSpawned", ...)
+
+
 end
 
 if errored then error("Some modules failed to load, see log") end
