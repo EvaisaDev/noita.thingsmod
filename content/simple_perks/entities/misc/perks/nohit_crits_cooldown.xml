@@ -18,8 +18,8 @@
 	
 	<UIIconComponent
 		icon_sprite_file="mods/noita.thingsmod/content/simple_perks/ui_gfx/status_indicators/nohit_crits_cd.png"
-		name="$perk_thingsmod_nohit_crits_cd_name"
-		description="$perk_thingsmod_nohit_crits_cd_desc"
+		name="$noita_thingsmod_simple_perks_perkname_nohit_crits_cd"
+		description="$noita_thingsmod_simple_perks_perkdesc_nohit_crits_cd"
 		is_perk="0"
 		display_above_head="0"
 		display_in_hud="1"

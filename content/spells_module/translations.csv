@@ -1,0 +1,5 @@
+,en,ru,pt-br,es-es,de,fr-fr,it,pl,zh-cn,jp,ko,,NOTES – use \n for newline,max length
+actionname_mono_cast,Mono Cast,,,,,,,,,,,,,
+actiondesc_mono_cast,"If duplicate spells follow this spell, they will be discarded",,,,,,,,,,,,"For example if the player has a 4 cast wand with mono cast, blackhole, black hole, black hole; the first blackhole will be cast and the other 2 will be ignored",
+actionname_cogwork_sentinel,Cogwork Sentinel,,,,,,,,,,,,,
+actiondesc_cogwork_sentinel,Summons a holy cogwork sentinel to protect the caster.,,,,,,,,,,,,,

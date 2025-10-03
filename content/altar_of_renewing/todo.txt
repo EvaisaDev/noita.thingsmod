@@ -1,0 +1,1 @@
+Altar that resets the world with a new seed. Surely this will have no repercussions.
