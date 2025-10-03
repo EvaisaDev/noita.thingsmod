@@ -12,4 +12,9 @@ function M.modpath(relative_path)
 	return ("mods/noita.thingsmod/content/%s/%s"):format(M.current_module, relative_path)
 end
 
+---Prefixes the path with mods/noita.thingsmod/
+function M.prefixed_path(path)
+	return "mods/noita.thingsmod/" .. path
+end
+
 return M

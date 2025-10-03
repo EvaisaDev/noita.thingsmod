@@ -1,5 +1,6 @@
 dofile_once("mods/noita.thingsmod/require.lua")
-local module_utils = require("lib.module_utils.module_utils")
+local credible_settings = require "lib.credible_settings.credible_settings"
+local module_utils = require "lib.module_utils.module_utils"
 
 local modules = require "content"
 
@@ -78,5 +79,11 @@ function OnPlayerSpawned(...)
 	GameAddFlagRun(flag)
 	do_callback("OnPlayerFirstSpawned", ...)
 end
+
+credible_settings.install_hooks()
+credible_settings.add_menu(
+	"Every Things",
+	module_utils.prefixed_path("./content/module_control/src/settings.lua")
+)
 
 if errored then error("Some modules failed to load, see log") end

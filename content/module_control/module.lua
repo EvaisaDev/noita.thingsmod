@@ -1,5 +1,7 @@
 local button = require "content.module_control.src.button"
+local credible_settings = require "lib.credible_settings.credible_settings"
 local menu = require "content.module_control.src.menu"
+local module_utils = require "lib.module_utils.module_utils"
 local gui
 local internal_frame = 0
 local paused = false
@@ -29,6 +31,10 @@ local M = {
 	end,
 	OnWorldPreUpdate = function()
 		if not paused then GuiStartFrame(gui) end
+	end,
+	OnThingsCalled = function()
+		credible_settings.install_hooks()
+		credible_settings.add_menu("Every Things", module_utils.modpath("src/settings.lua"))
 	end,
 }
 

@@ -7,3 +7,6 @@
 [submodule "lib/noita_stubs"]
 	path = lib/noita_stubs
 	url = https://github.com/NathanSnail/noita_stubs.git
+[submodule "lib/credible_settings"]
+	path = lib/credible_settings
+	url = https://github.com/NathanSnail/credible_settings.git
