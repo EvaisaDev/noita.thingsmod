@@ -1,6 +1,5 @@
-<Entity tags="tablet">
-    <BookComponent>
-    </BookComponent>
+<Entity name="cat_book">
+    <BookComponent />
 
     <UIInfoComponent
         name="The Good Book of Cats"
