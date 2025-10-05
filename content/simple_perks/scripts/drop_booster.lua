@@ -3,7 +3,7 @@ function death(...)
 	old(...)
 	local count = tonumber(GlobalsGetValue("PERK_PICKED_NOITA_THINGSMOD_BOUNTIFUL_HUNTER_PICKUP_COUNT", "0"))
 	SetRandomSeed(GameGetFrameNum(), (GameGetCameraPos()))
-	if true then --count>0 and Random()<=(-0.985^count+1) then
+	if count>0 and Random()<=(-0.985^count+1) then -- may need adjustment
 		-- play audio chime
 		local x, y = EntityGetTransform( GetUpdatedEntityID() )
 		DEBUG_MARK(x, y)
