@@ -10,7 +10,7 @@ local gui
 
 local cats = {
     {
-        img = "mods/noita.thingsmod/cats/skittle.jpg",
+        img = "mods/noita.thingsmod/cats/skittle.png",
         name = "Skittle"
     },
     {
@@ -18,20 +18,24 @@ local cats = {
         name = "Evil Beast",
     },
     {
-        img = "mods/noita.thingsmod/cats/alesx_droolemoji.jpg",
+        img = "mods/noita.thingsmod/cats/alesx_droolemoji.png",
         name = "Alex",
     },
     {
-        img = "mods/noita.thingsmod/cats/james.jpg",
+        img = "mods/noita.thingsmod/cats/james.png",
         name = "James",
     },
     {
-        img = "mods/noita.thingsmod/cats/monty.jpg",
+        img = "mods/noita.thingsmod/cats/monty.png",
         name = "Monty",
     },
     {
-        img = "mods/noita.thingsmod/cats/roger.jpg",
+        img = "mods/noita.thingsmod/cats/roger.png",
         name = "Roger",
+    },
+    {
+        img = "mods/noita.thingsmod/cats/ella.png",
+        name = "Ella",
     },
 }
 
@@ -63,10 +67,15 @@ function M.OnWorldPreUpdate()
         GuiOptionsAdd(gui, gui_options.NonInteractive)
     end
 
-    if not GameHasFlagRun("NOITA_THINGSMOD_CAT_BOOK_HELD") then
-        return
-    end
-
+    local book_id = EntityGetWithName( "cat_book" ) or 0
+    if book_id == 0 then return end
+    local owner_id = EntityGetRootEntity( book_id )
+    if owner_id == book_id then return end
+    local gui_comp = EntityGetFirstComponentIncludingDisabled( owner_id, "InventoryGuiComponent" ) or 0
+	if gui_comp == 0 or ComponentGetValue2( gui_comp, "mActive" ) then return end
+    local inv_comp = EntityGetFirstComponentIncludingDisabled( owner_id, "Inventory2Component" ) or 0
+	if inv_comp == 0 or ComponentGetValue2( inv_comp, "mActiveItem" ) ~= book_id then return end
+    
     local ui_width, ui_height = GuiGetScreenDimensions(gui)
     local img_width, img_height = GuiGetImageDimensions(gui, "mods/noita.thingsmod/content/good_book_of_cats/gfx/book_ui.png")
 

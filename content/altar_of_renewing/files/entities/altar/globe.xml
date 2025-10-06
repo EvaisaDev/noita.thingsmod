@@ -1,0 +1,74 @@
+<Entity name="physics_body_globe">
+
+    <PhysicsBody2Component 
+	  force_add_update_areas="1"
+	  allow_sleep="0"
+	  auto_clean="0"
+	  hax_wait_till_pixel_scenes_loaded="1"
+	  hax_fix_going_through_ground="1"
+	  destroy_body_if_entity_destroyed="1"
+	  kill_entity_if_body_destroyed="0"
+      >
+    </PhysicsBody2Component>
+
+    <PhysicsImageShapeComponent 
+      centered="1"
+      is_root="1"
+      image_file="mods/noita.thingsmod/content/altar_of_renewing/files/entities/altar/altar_globe.png"
+      material="rock_box2d"
+      >
+    </PhysicsImageShapeComponent>
+
+	
+	<ParticleEmitterComponent 
+		_enabled="1"
+		emitted_material_name="gold"
+		x_pos_offset_min="0"
+		x_pos_offset_max="0"
+		y_pos_offset_min="0"
+		y_pos_offset_max="0"
+		x_vel_min="-1"
+		x_vel_max="1"
+		y_vel_min="-1"
+		y_vel_max="1"
+		gravity.y="0"
+		lifetime_min="1"
+		lifetime_max="3"
+		count_min="1"
+		count_max="1"
+		render_on_grid="1"
+		collide_with_grid="0"
+		fade_based_on_lifetime="1"
+		cosmetic_force_create="1"
+		emit_cosmetic_particles="1"
+		airflow_force="0"
+		airflow_time="0"
+		airflow_scale="0"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		offset.x="0"
+		offset.y="0"
+		area_circle_radius.min="0"
+		area_circle_radius.max="22"
+		is_emitting="1"
+		>
+	</ParticleEmitterComponent>
+
+
+	<InteractableComponent
+		radius="50"
+		ui_text="Press $0 to touch the globe."
+		name="interact"
+	/>
+
+	<LuaComponent
+		script_source_file="mods/noita.thingsmod/content/altar_of_renewing/files/scripts/globe.lua"
+		script_interacting="mods/noita.thingsmod/content/altar_of_renewing/files/scripts/globe.lua"
+		execute_every_n_frame="1"
+		execute_on_added="1"
+		enable_coroutines="1"
+		vm_type="SHARED_BY_MANY_COMPONENTS"
+	/>
+
+
+</Entity>

@@ -35,7 +35,7 @@ local function do_callback(callback_name, ...)
 		if mod and mod[callback_name] and not disabled_modules[module] then
 			local success, error_msg = pcall(mod[callback_name], ...) --if runs normally and returns true, all the future module callbacks will be skipped
 			if not success then
-				print(mod.name .. " Error: " .. error_msg)
+				print( "\27[5D\27[38;2;255;0;0m"..( mod.name .. " Error: " .. error_msg ).."\27[0m     " )
 				errored = true
 			elseif error_msg then
 				disabled_modules[module] = true

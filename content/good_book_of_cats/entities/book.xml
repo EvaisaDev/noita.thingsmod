@@ -1,6 +1,5 @@
-<Entity tags="tablet">
-    <BookComponent>
-    </BookComponent>
+<Entity name="cat_book">
+    <BookComponent />
 
     <UIInfoComponent
         name="The Good Book of Cats"
@@ -124,8 +123,7 @@
     </AbilityComponent>
 
     <LuaComponent
-        _tags="enabled_in_hand"
-        script_enabled_changed="mods/noita.thingsmod/content/good_book_of_cats/scripts/book.lua"
+        _tags="enabled_in_world"
         script_physics_body_modified="mods/noita.thingsmod/content/good_book_of_cats/scripts/book.lua"
         />
 
