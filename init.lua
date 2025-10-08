@@ -80,10 +80,4 @@ function OnPlayerSpawned(...)
 	do_callback("OnPlayerFirstSpawned", ...)
 end
 
-credible_settings.install_hooks()
-credible_settings.add_menu(
-	"Every Things",
-	module_utils.prefixed_path("./content/module_control/src/settings.lua")
-)
-
 if errored then error("Some modules failed to load, see log") end
